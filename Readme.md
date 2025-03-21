@@ -27,4 +27,4 @@ public class OlaMundo {
 
 ## Mascote do Java
 
-![Mascote Java](duke-java.png)
+![Mascote Java](duke.jpeg)
