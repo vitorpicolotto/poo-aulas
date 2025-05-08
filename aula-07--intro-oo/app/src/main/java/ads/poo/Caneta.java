@@ -36,9 +36,9 @@ public class Caneta {
 
         int quantos = 0;
 
-        if (!tampada) {
-            quantos = tinta - quantidade > 0 ? "_".repeat(quantidade) : "_".repeat(tinta);
-        }
+        // if (!tampada) {
+        //     quantos = tinta - quantidade > 0 ? "_".repeat(quantidade) : "_".repeat(tinta);
+        // }
 
         return "_".repeat(quantos);
 

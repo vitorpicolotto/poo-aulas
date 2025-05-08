@@ -35,7 +35,7 @@ public class App {
         Caneta b = new Caneta("azul");
         Caneta d = new Caneta("verde", 50);
 
- 
+        c.desenhar(5);
     }
 
   
