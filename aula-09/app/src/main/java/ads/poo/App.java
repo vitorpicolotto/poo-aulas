@@ -3,12 +3,68 @@
  */
 package ads.poo;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import java.util.ArrayList;
 
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        
+        ArrayList<String> lista = new ArrayList<>();
+        ArrayList<Pessoa> agenda = new ArrayList<>();
+
+        lista.add("POO");
+        lista.add("Redes");
+        lista.add("FE1");
+        lista.add("Estatística");
+
+        for (int index = 0; index < lista.size(); index++) {
+            System.out.println(lista.get(index));
+        } //prática ruim...
+
+        for(String elemento : lista){
+            System.out.println(elemento);
+        } //for each - PRÁTICA BOA
+
+        Pessoa pessoa = new Pessoa("gmb@gmail.com", "Giuliano");
+        agenda.add(pessoa);
+        agenda.add(new Pessoa("lucas@email.com", "Lucas"));
+        agenda.add(new Pessoa("rudolf@mail.com", "Rudolf"));
+        agenda.add(new Pessoa("wesley@gmail.com", "Wesley"));
+
+        for (Pessoa listaPessoa : agenda) {
+            System.out.println(listaPessoa);
+        }
+
+
+        //Expressão lambda
+        lista.forEach(elemento -> {
+            System.out.println(elemento);
+        });
+
+        //Method reference
+        lista.forEach(System.out::println);
+
+        //Remove
+        lista.removeIf(elemento -> elemento.equals("POO"));
+        lista.forEach(System.out::println);
+
+        agenda.removeIf(listaPessoa -> listaPessoa.getNome().equals("Wesley")); 
+        agenda.forEach(System.out::println);
+
+        //Busca
+        Pessoa p = agenda.stream()
+        .filter(listaPessoa -> listaPessoa.getNome().equals("Rudolf"))
+        .findFirst()
+        .orElse(null);
+
+
+        if(p != null){
+            String n = p.getNome();
+            System.out.println(n); //criando uma nova variável para "quebrar" o código
+        } else{
+            System.out.println("Nome não consta na lista");
+        }
+
+
+
     }
 }
